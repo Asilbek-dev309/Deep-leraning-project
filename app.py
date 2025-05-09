@@ -1,6 +1,7 @@
 import streamlit as st
 from fastai.vision.all import *
 import pathlib
+import pickle
 import plotly.express as px
 import platform
 plt=platform.system()
@@ -9,10 +10,15 @@ if plt =='Linux': pathlib.WindowsPath=pathlib.PosixPath
 temp=pathlib.PosixPath
 pathlib.PosixPath=pathlib.WindowsPath
 
-import pickle
+import torch
 
-with open('transport_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+# WindowsPath muammosini yo'qotish
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
+
+model = torch.load('transport_model.pkl', map_location='cpu')
+
+
 
 
 st.title('Transport kalssifikatsiya qilivchi model')
