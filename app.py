@@ -9,6 +9,12 @@ if plt =='Linux': pathlib.WindowsPath=pathlib.PosixPath
 temp=pathlib.PosixPath
 pathlib.PosixPath=pathlib.WindowsPath
 
+import pickle
+
+with open('transport_model.pkl', 'rb') as f:
+    model = pickle.load(f)
+
+
 st.title('Transport kalssifikatsiya qilivchi model')
 
 file=st.file_uploader("Rasm yuklash",type=['png','jpeg','gif','svg'])
