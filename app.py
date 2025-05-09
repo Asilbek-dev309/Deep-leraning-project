@@ -7,7 +7,7 @@ import platform
 plt=platform.system()
 if plt =='Linux': pathlib.WindowsPath=pathlib.PosixPath
 
-st.title('Transport kalssifikatsiya qilivchi model')
+st.title('Transport klassifikatsiya qilivchi model')
 
 file=st.file_uploader("Rasm yuklash",type=['png','jpeg','gif','svg'])
 if file:
