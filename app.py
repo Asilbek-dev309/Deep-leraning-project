@@ -7,20 +7,6 @@ import platform
 plt=platform.system()
 if plt =='Linux': pathlib.WindowsPath=pathlib.PosixPath
 
-temp=pathlib.PosixPath
-pathlib.PosixPath=pathlib.WindowsPath
-
-import torch
-
-# WindowsPath muammosini yo'qotish
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
-
-model = torch.load('transport_model.pkl', map_location='cpu')
-
-
-
-
 st.title('Transport kalssifikatsiya qilivchi model')
 
 file=st.file_uploader("Rasm yuklash",type=['png','jpeg','gif','svg'])
